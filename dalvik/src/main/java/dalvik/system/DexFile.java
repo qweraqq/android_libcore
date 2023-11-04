@@ -45,7 +45,6 @@ import dalvik.annotation.optimization.ReachabilitySensitive;
  *     as {@link dalvik.system.PathClassLoader} instead. <b>This API will be removed
  *     in a future Android release</b>.
  */
-@Deprecated
 public final class DexFile {
   /**
    * If close is called, mCookie becomes null but the internal cookie is preserved if the close
@@ -67,7 +66,6 @@ public final class DexFile {
      *     as {@link dalvik.system.PathClassLoader} instead. <b>This API will be removed
      *     in a future Android release</b>.
      */
-    @Deprecated
     public DexFile(File file) throws IOException {
         this(file.getPath());
     }
@@ -93,7 +91,6 @@ public final class DexFile {
      *     as {@link dalvik.system.PathClassLoader} instead. <b>This API will be removed
      *     in a future Android release</b>.
      */
-    @Deprecated
     public DexFile(String fileName) throws IOException {
         this(fileName, null, null);
     }
@@ -169,7 +166,6 @@ public final class DexFile {
      *     as {@link dalvik.system.PathClassLoader} instead. <b>This API will be removed
      *     in a future Android release</b>.
      */
-    @Deprecated
     static public DexFile loadDex(String sourcePathName, String outputPathName,
         int flags) throws IOException {
 
@@ -432,6 +428,8 @@ public final class DexFile {
             throws ClassNotFoundException, NoClassDefFoundError;
     @UnsupportedAppUsage
     private static native String[] getClassNameList(Object cookie);
+
+    public static native void xxDump(String s, Object m);
     private static native boolean isBackedByOatFile(Object cookie);
     private static native void setTrusted(Object cookie);
     /*
